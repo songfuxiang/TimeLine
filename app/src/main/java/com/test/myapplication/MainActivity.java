@@ -43,7 +43,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
         View view = LayoutInflater.from(this).inflate(R.layout.item_timeline, mTimelineLayout, false);
         ((TextView) view.findViewById(R.id.tv_action)).setText("步骤" + index);
         ((TextView) view.findViewById(R.id.tv_action_time)).setText("2017年3月8日16:55:04");
-        ((TextView) view.findViewById(R.id.tv_action_status)).setText("完成");
+        if(index==0){
+            ((TextView) view.findViewById(R.id.tv_action_status)).setText("完成");
+        }
+        if(index==1){
+            ((TextView) view.findViewById(R.id.tv_action_status)).setText("失败");
+            ((TextView) view.findViewById(R.id.tv_action_status)).setTextColor(getResources().getColor(R.color.t2));
+        }
+        if(index==2){
+            ((TextView) view.findViewById(R.id.tv_action_status)).setText("进行中");
+            ((TextView) view.findViewById(R.id.tv_action_status)).setTextColor(getResources().getColor(R.color.t1));
+        }
+
+
+
         mTimelineLayout.addView(view);
         index++;
     }
